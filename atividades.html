@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+<meta charset="UTF-8">
+<title>FluentCode - Atividades</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+body{
+    background:#0d1b2a;
+    color:white;
+}
+
+/* CONTAINER */
+.container{
+    width:100%;
+    max-width:1100px;
+    margin:auto;
+}
+
+/* CARD ATIVIDADE */
+.card{
+    background:#0f172a;
+    border:1px solid #1f2937;
+    border-radius:18px;
+
+    padding:18px;
+
+    transition:.2s;
+}
+
+.card:hover{
+    transform:translateY(-4px);
+    border-color:#3b82f6;
+    box-shadow:0 10px 25px rgba(0,0,0,.4);
+}
+
+/* BOTÃO */
+.btn{
+    width:100%;
+    padding:14px;
+    border-radius:12px;
+    font-weight:bold;
+    text-align:center;
+}
+
+/* TAG XP */
+.xp{
+    background:#1e293b;
+    padding:4px 10px;
+    border-radius:999px;
+    font-size:12px;
+}
+
+/* RESPONSIVO */
+@media(max-width:640px){
+
+    body{
+        padding:12px;
+    }
+
+    h1{
+        font-size:22px;
+        text-align:center;
+    }
+}
+</style>
+</head>
+
+<body class="p-4 sm:p-6">
+
+<div class="container">
+
+<!-- TOPO -->
+<div class="text-center mb-8">
+
+<h1 class="text-3xl font-bold">📚 Atividades FluentCode</h1>
+
+<p class="text-gray-400 mt-2">
+Pratique programação e ganhe XP
+</p>
+
+</div>
+
+<!-- GRID -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+
+<p class="text-gray-400 mb-4">
+Responda perguntas básicas de Java.
+</p>
+
+<button onclick="location.href='quiz.html'"
+class="btn bg-orange-600 hover:bg-orange-500">
+Começar
+</button>
+
+</div>
+
+<!-- ATIVIDADE 1 -->
+<div class="card">
+
+<div class="flex justify-between items-center mb-3">
+<h2 class="text-xl font-bold">🧩 Monte o Código</h2>
+<span class="xp">+120 XP</span>
+</div>
+
+<p class="text-gray-400 mb-4">
+Organize os blocos na ordem correta.
+</p>
+
+<button onclick="location.href='montar.html'"
+class="btn bg-blue-600 hover:bg-blue-500">
+Começar
+</button>
+
+</div>
+
+<!-- ATIVIDADE 2 -->
+<div class="card">
+
+<div class="flex justify-between items-center mb-3">
+<h2 class="text-xl font-bold">🐞 Caça Erros</h2>
+<span class="xp">+150 XP</span>
+</div>
+
+<p class="text-gray-400 mb-4">
+Encontre os erros no código Java.
+</p>
+
+<button onclick="location.href='caca-erros.html'"
+class="btn bg-red-600 hover:bg-red-500">
+Começar
+</button>
+
+</div>
+
+<!-- ATIVIDADE 3 -->
+<div class="card">
+
+<div class="flex justify-between items-center mb-3">
+<h2 class="text-xl font-bold">💡 Lógica Java</h2>
+<span class="xp">+130 XP</span>
+</div>
+
+<p class="text-gray-400 mb-4">
+Exercícios de lógica e pensamento.
+</p>
+
+<button onclick="location.href='logica.html'"
+class="btn bg-green-600 hover:bg-green-500">
+Começar
+</button>
+
+</div>
+
+<!-- ATIVIDADE 4 -->
+<div class="card">
+
+<div class="flex justify-between items-center mb-3">
+<h2 class="text-xl font-bold">🔤 Sintaxe Java</h2>
+<span class="xp">+110 XP</span>
+</div>
+
+<p class="text-gray-400 mb-4">
+Aprenda a estrutura correta do Java.
+</p>
+
+<button onclick="location.href='sintaxe.html'"
+class="btn bg-purple-600 hover:bg-purple-500">
+Começar
+</button>
+
+</div>
+
+<!-- ATIVIDADE 5 -->
+<div class="card">
+
+<div class="flex justify-between items-center mb-3">
+<h2 class="text-xl font-bold">🚀 Desafio Final</h2>
+<span class="xp">+200 XP</span>
+</div>
+
+<p class="text-gray-400 mb-4">
+Desafio avançado de programação.
+</p>
+
+<button onclick="location.href='desafio.html'"
+class="btn bg-yellow-600 hover:bg-yellow-500 text-black">
+Começar
+</button>
+
+</div>
+
+</div>
+
+<!-- VOLTAR -->
+<div class="mt-10 text-center">
+
+<button onclick="location.href='index.html'"
+class="bg-slate-800 px-6 py-3 rounded-xl font-bold hover:bg-slate-700">
+<i class="fa-solid fa-arrow-left"></i> Voltar ao Menu
+</button>
+
+</div>
+
+</div>
+
+</body>
+</html>

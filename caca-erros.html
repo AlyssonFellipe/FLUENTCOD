@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Caça-Erros</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<style>
+
+</style>
+
+<body class="bg-[#0d1b2a] text-white">
+
+
+
+  <button onclick="history.back()" class="fixed bottom-6 left-4 
+bg-gradient-to-r from-blue-600 to-indigo-600 
+hover:from-blue-700 hover:to-indigo-700 
+text-white font-bold px-5 py-3 rounded-2xl 
+shadow-lg flex items-center gap-2 z-50 transition">
+
+    <i class="fa-solid fa-arrow-left"></i>
+    Voltar
+  </button>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <div id="feedback" class="hidden fixed inset-0 flex items-center justify-center bg-black/60">
+    <div class="bg-slate-900 border border-slate-700 p-6 rounded-2xl text-center max-w-sm w-full">
+
+      <div id="emoji" class="text-5xl mb-2">🎯</div>
+      <h2 id="titulo" class="text-xl font-bold">...</h2>
+      <p id="texto" class="text-sm text-gray-300 mt-2">...</p>
+
+      <button onclick="closeFeedback()" class="mt-4 bg-blue-600 px-4 py-2 rounded-xl">
+        Continuar
+      </button>
+
+    </div>
+  </div>
+
+  <div class="min-h-screen flex items-center justify-center p-6">
+
+    <div class="bg-gradient-to-br from-red-600 to-red-800 p-8 rounded-3xl max-w-md w-full text-center">
+
+      <h1 class="text-2xl font-bold">🚨 Caça-Erros</h1>
+
+      <p class="mt-3">Quantos erros existem aqui?</p>
+
+      <div class="bg-black p-3 mt-4 rounded-xl text-sm">
+        System.out.println("Hello")<br>
+        int x = 10<br>
+      </div>
+
+      <button onclick="check()" class="mt-6 w-full bg-white text-red-700 py-3 rounded-xl font-bold">
+        Responder
+      </button>
+
+    </div>
+  </div>
+
+  <script>
+    function check() {
+      alert("✔ +100 XP");
+      window.location.href = "jogos.html";
+    }
+
+    function selecionarBotao(botao, idx) {
+      sel = idx;
+
+      // remove seleção de todos
+      document.querySelectorAll("#op button").forEach(b => {
+        b.className = "w-full p-3 bg-slate-800 rounded-xl transition";
+      });
+
+      // marca o clicado
+      botao.className = "w-full p-3 bg-blue-600 rounded-xl transition";
+    }
+
+    function load() {
+      const d = data[i];
+      document.getElementById("q").innerText = d.q;
+      document.getElementById("op").innerHTML = "";
+
+      d.o.forEach((x, idx) => {
+        let b = document.createElement("button");
+        b.innerText = x;
+
+        b.className = "w-full p-3 bg-slate-800 rounded-xl transition";
+
+        b.onclick = () => {
+          sel = idx;
+
+          // remove seleção dos outros
+          document.querySelectorAll("#op button").forEach(btn => {
+            btn.className = "w-full p-3 bg-slate-800 rounded-xl transition";
+          });
+
+          // marca o selecionado
+          b.className = "w-full p-3 bg-blue-600 rounded-xl transition";
+        };
+
+        document.getElementById("op").appendChild(b);
+      });
+
+      document.getElementById("bar").style.width = (i / data.length) * 100 + "%";
+    }
+
+    function showFeedback(tipo, texto) {
+
+      document.getElementById("feedback").classList.remove("hidden");
+
+      if (tipo === "certo") {
+        document.getElementById("emoji").innerText = "🎉";
+        document.getElementById("titulo").innerText = "Resposta Correta!";
+      }
+      else {
+        document.getElementById("emoji").innerText = "❌";
+        document.getElementById("titulo").innerText = "Resposta Errada!";
+      }
+
+      document.getElementById("texto").innerText = texto;
+    }
+
+    function closeFeedback() {
+      document.getElementById("feedback").classList.add("hidden");
+    }
+  </script>
+
+</body>
+
+</html>
