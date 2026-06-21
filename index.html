@@ -8,6 +8,14 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        main {
+            margin-left: 64px;
+            transition: margin-left 0.3s ease;
+        }
+
+        .main-expandido {
+            margin-left: 260px;
+        }
         body {
             background-color: #0d1b2a;
             color: #ffffff;
@@ -90,6 +98,8 @@
         .menu-text {
             white-space: nowrap;
         }
+
+        
     </style>
 </head>
 
@@ -202,7 +212,7 @@
         </div>
     </aside>
 
-    <main class="ml-16 flex-1 grid grid-cols-1 xl:grid-cols-3 gap-6 p-3 md:p-6 overflow-y-auto"></main>
+    <main class="ml-16 flex-1 grid grid-cols-1 xl:grid-cols-3 gap-6 p-3 md:p-6 overflow-y-auto">
 
     <div class="xl:col-span-3 space-y-8">
 
@@ -920,35 +930,34 @@
                 window.location.href = "login.html";
             }
         }
+
         const sidebar = document.getElementById("sidebar");
         const toggleBtn = document.getElementById("toggleSidebar");
+        const main = document.querySelector("main");
 
-        if (sidebar && toggleBtn) {
+        toggleBtn.addEventListener("click", () => {
 
-            toggleBtn.addEventListener("click", () => {
+            sidebar.classList.toggle("sidebar-expandida");
+            main.classList.toggle("main-expandido");
 
-                sidebar.classList.toggle("sidebar-expandida");
-
-                document.querySelectorAll(".menu-text").forEach(item => {
-                    item.classList.toggle("hidden");
-                });
-
-                const icon = toggleBtn.querySelector("i");
-
-                if (sidebar.classList.contains("sidebar-expandida")) {
-                    icon.classList.remove("fa-chevron-right");
-                    icon.classList.add("fa-chevron-left");
-
-                    toggleBtn.style.left = "260px";
-                } else {
-                    icon.classList.remove("fa-chevron-left");
-                    icon.classList.add("fa-chevron-right");
-
-                    toggleBtn.style.left = "64px";
-                }
+            document.querySelectorAll(".menu-text").forEach(item => {
+                item.classList.toggle("hidden");
             });
 
-        }
+            const icon = toggleBtn.querySelector("i");
+
+            if (sidebar.classList.contains("sidebar-expandida")) {
+                icon.classList.remove("fa-chevron-right");
+                icon.classList.add("fa-chevron-left");
+
+                toggleBtn.style.left = "260px";
+            } else {
+                icon.classList.remove("fa-chevron-left");
+                icon.classList.add("fa-chevron-right");
+
+                toggleBtn.style.left = "64px";
+            }
+        });
     </script>
 
 
