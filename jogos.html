@@ -1,115 +1,188 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-<meta charset="UTF-8">
-<title>Jogos - FluentCode</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Jogos - FluentCode</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    body {
+      background: #0d1b2a;
+      color: white;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial;
+    }
+
+    /* CONTAINER */
+    .container {
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    /* GRID RESPONSIVO REAL */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    /* CARD MELHORADO */
+    .card {
+      border-radius: 20px;
+      padding: 22px;
+
+      cursor: pointer;
+      transition: .25s ease;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      min-height: 160px;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+    }
+
+    /* BOTÃO VOLTAR */
+    .back-btn {
+      position: fixed;
+      bottom: 20px;
+      left: 16px;
+      z-index: 50;
+    }
+
+    /* HEADER */
+    .header h1 {
+      font-size: 38px;
+      font-weight: 800;
+    }
+
+    .header p {
+      color: #9ca3af;
+    }
+
+    /* RESPONSIVO REAL (SEM ENCOLHER) */
+    @media(max-width:900px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .header h1 {
+        font-size: 26px;
+      }
+
+      .card {
+        min-height: auto;
+        padding: 18px;
+      }
+    }
+
+    @media(max-width:640px) {
+      body {
+        padding: 14px;
+      }
+    }
+  </style>
+
 </head>
 
-<style>
-  
-</style>
+<body class="p-6">
 
-<body class="bg-[#0d1b2a] text-white">
-
-    
-
-  <button onclick="history.back()"
-class="fixed bottom-6 left-4 
-bg-gradient-to-r from-blue-600 to-indigo-600 
+  <!-- BOTÃO VOLTAR -->
+  <button onclick="history.back()" class="back-btn bg-gradient-to-r from-blue-600 to-indigo-600 
 hover:from-blue-700 hover:to-indigo-700 
 text-white font-bold px-5 py-3 rounded-2xl 
-shadow-lg flex items-center gap-2 z-50 transition">
+shadow-lg flex items-center gap-2 transition">
 
-  <i class="fa-solid fa-arrow-left"></i>
-  Voltar
-</button>
+    <i class="fa-solid fa-arrow-left"></i>
+    Voltar
+  </button>
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <div class="container">
 
-<div class="min-h-screen p-6">
+    <!-- HEADER -->
+    <div class="header mb-10">
+      <h1>🎮 Central de Jogos</h1>
+      <p>Escolha um desafio para treinar suas habilidades</p>
+    </div>
 
-<!-- HEADER -->
-<div class="mb-8">
-    <h1 class="text-4xl font-extrabold">🎮 Central de Jogos</h1>
-    <p class="text-gray-400 mt-2">Escolha um desafio para treinar suas habilidades</p>
-</div>
+    <!-- GRID -->
+    <div class="grid">
 
-<!-- CARDS -->
-<div class="grid gap-6 md:grid-cols-2 lg:grid-cols-2">
+      <!-- QUIZ -->
+      <div onclick="window.location.href='quiz.html'"
+        class="card bg-gradient-to-br from-blue-600 to-blue-800 shadow-xl border border-blue-400/20">
 
-<!-- QUIZ -->
-<div onclick="window.location.href='quiz.html'"
-class="cursor-pointer bg-gradient-to-br from-blue-600 to-blue-800 hover:scale-105 transition transform p-6 rounded-2xl shadow-xl border border-blue-400/20">
+        <div class="flex items-center gap-3 mb-3">
+          <i class="fa-solid fa-bolt text-yellow-300 text-2xl"></i>
+          <h2 class="text-xl font-bold">Quiz de Java</h2>
+        </div>
 
-<div class="flex items-center gap-3 mb-3">
-<i class="fa-solid fa-bolt text-yellow-300 text-2xl"></i>
-<h2 class="text-xl font-bold">Quiz de Java</h2>
-</div>
+        <p class="text-sm text-blue-100">
+          Teste seus conhecimentos básicos de programação com perguntas rápidas.
+        </p>
 
-<p class="text-sm text-blue-100">
-Teste seus conhecimentos básicos de programação com perguntas rápidas.
-</p>
+        <div class="mt-4 text-xs text-blue-200">🔥 Dificuldade: Fácil</div>
+      </div>
 
-<div class="mt-4 text-xs text-blue-200">🔥 Dificuldade: Fácil</div>
+      <!-- MONTAR -->
+      <div onclick="window.location.href='montar.html'"
+        class="card bg-gradient-to-br from-amber-500 to-orange-600 text-black shadow-xl">
 
-</div>
+        <div class="flex items-center gap-3 mb-3">
+          <i class="fa-solid fa-puzzle-piece text-black text-2xl"></i>
+          <h2 class="text-xl font-bold">Montar Código</h2>
+        </div>
 
-<!-- MONTAR CÓDIGO -->
-<div onclick="window.location.href='montar.html'"
-class="cursor-pointer bg-gradient-to-br from-amber-500 to-orange-600 hover:scale-105 transition transform p-6 rounded-2xl shadow-xl text-black">
+        <p class="text-sm">
+          Organize a sintaxe corretamente e forme comandos Java válidos.
+        </p>
 
-<div class="flex items-center gap-3 mb-3">
-<i class="fa-solid fa-puzzle-piece text-black text-2xl"></i>
-<h2 class="text-xl font-bold">Montar Código</h2>
-</div>
+        <div class="mt-4 text-xs font-semibold">🧠 Dificuldade: Médio</div>
+      </div>
 
-<p class="text-sm">
-Organize a sintaxe corretamente e forme comandos Java válidos.
-</p>
+      <!-- CAÇA ERROS -->
+      <div onclick="window.location.href='caca-erros.html'"
+        class="card bg-gradient-to-br from-red-600 to-red-800 shadow-xl border border-red-400/20">
 
-<div class="mt-4 text-xs font-semibold">🧠 Dificuldade: Médio</div>
+        <div class="flex items-center gap-3 mb-3">
+          <i class="fa-solid fa-bug text-white text-2xl"></i>
+          <h2 class="text-xl font-bold">Caça-Erros</h2>
+        </div>
 
-</div>
+        <p class="text-sm text-red-100">
+          Encontre e corrija erros escondidos no código.
+        </p>
 
-<!-- CAÇA ERROS -->
-<div onclick="window.location.href='caca-erros.html'"
-class="cursor-pointer bg-gradient-to-br from-red-600 to-red-800 hover:scale-105 transition transform p-6 rounded-2xl shadow-xl border border-red-400/20">
+        <div class="mt-4 text-xs text-red-200">⚡ Dificuldade: Médio/Difícil</div>
+      </div>
 
-<div class="flex items-center gap-3 mb-3">
-<i class="fa-solid fa-bug text-white text-2xl"></i>
-<h2 class="text-xl font-bold">Caça-Erros</h2>
-</div>
+      <!-- INGLÊS -->
+      <div onclick="window.location.href='ingles.html'"
+        class="card bg-gradient-to-br from-purple-600 to-indigo-700 shadow-xl border border-purple-400/20">
 
-<p class="text-sm text-red-100">
-Encontre e corrija erros escondidos no código.
-</p>
+        <div class="flex items-center gap-3 mb-3">
+          <i class="fa-solid fa-language text-white text-2xl"></i>
+          <h2 class="text-xl font-bold">Inglês Técnico</h2>
+        </div>
 
-<div class="mt-4 text-xs text-red-200">⚡ Dificuldade: Médio/Difícil</div>
+        <p class="text-sm text-purple-100">
+          Aprenda termos usados na programação em inglês.
+        </p>
 
-</div>
+        <div class="mt-4 text-xs text-purple-200">📘 Dificuldade: Fácil</div>
+      </div>
 
-<!-- INGLÊS TÉCNICO -->
-<div onclick="window.location.href='ingles.html'"
-class="cursor-pointer bg-gradient-to-br from-purple-600 to-indigo-700 hover:scale-105 transition transform p-6 rounded-2xl shadow-xl border border-purple-400/20">
+    </div>
 
-<div class="flex items-center gap-3 mb-3">
-<i class="fa-solid fa-language text-white text-2xl"></i>
-<h2 class="text-xl font-bold">Inglês Técnico</h2>
-</div>
-
-<p class="text-sm text-purple-100">
-Aprenda termos usados na programação em inglês.
-</p>
-
-<div class="mt-4 text-xs text-purple-200">📘 Dificuldade: Fácil</div>
-
-</div>
-
-</div>
-
-</div>
+  </div>
 
 </body>
+
 </html>
